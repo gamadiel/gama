@@ -25,7 +25,7 @@ SECRET_KEY = '$7-kh!*0@m#z+2@_u2ez3_r#%vcu5=vy&k(8@rdvjpb@d4s9ao'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.212.174.91','127.0.0.1']
 
 
 # Application definition
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'gama.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+	'USER': 'postgres',
+	'PASSWORD': 'postgres',
+	'HOST': 'postgres.czob35tujonm.us-east-1.rds.amazonaws.com',
+	'PORT': '5432'
     }
 }
 
@@ -118,3 +122,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
